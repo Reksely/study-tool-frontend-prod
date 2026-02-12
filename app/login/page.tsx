@@ -34,7 +34,7 @@ declare global {
   }
 }
 
-const GOOGLE_CLIENT_ID = "276670799812-79fuj4kpd9hrc2r1ti8g6c0o3hsof893.apps.googleusercontent.com";
+const GOOGLE_CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID as string;
 
 export default function LoginPage() {
   const router = useRouter();
