@@ -1,4 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# StudyFetch - AI-Powered Learning Platform
+
+Transform your PDFs, presentations, and notes into organized study materials, interactive quizzes, and AI-powered tutoring instantly.
+
+**[Try it now →](https://study-tool-frontend-prod.vercel.app/study/test)**
+
+## Features
+
+### 📝 Smart Notes
+Upload your PDFs and presentations, and watch as our AI automatically generates organized notes, highlights key concepts, and creates a comprehensive study guide tailored to your learning needs.
+
+![Course Interface](https://study-tool-frontend-prod.vercel.app/images/course-interface.png)
+
+### 🤖 AI Tutoring & Quizzes
+Generate unlimited practice quizzes from your study material and get real-time help from your AI assistant. It tracks your learning progress, provides instant feedback, and answers questions about any concept.
+
+![Quiz Assistant](https://study-tool-frontend-prod.vercel.app/images/quiz-assistant.png)
+
+### 🎥 Brainrot Videos
+Turn boring lectures into viral brainrot videos! Powered by [Korpi.AI](https://korpi.ai), our AI generates engaging, meme-style explanation videos from your study material. Think Minecraft parkour gameplay with your biology notes narrated in brainrot style. Learning has never been this entertaining.
+
+![Brainrot Video](https://study-tool-frontend-prod.vercel.app/videos/brainrot-video.mp4)
+
+### Additional Features
+
+- **Topic Organization**: Automatically break down your material into organized learning units
+- **Progress Tracking**: Track which topics you've mastered and monitor your quiz performance over time
+- **AI Chat Assistant**: Chat with your personal AI assistant about any topic in your study material
 
 ## Backend Repository
 
