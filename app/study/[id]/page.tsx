@@ -91,6 +91,352 @@ export default function StudyPage() {
 
   const fetchStudy = async () => {
     try {
+      // Load fake data if ID is "test"
+      if (params.id === "test") {
+        const fakeStudy: Study = {
+          _id: "test",
+          title: "Markdown Features Showcase",
+          description: "A comprehensive demonstration of all markdown capabilities",
+          content: `# Complete Markdown Showcase
+
+This document demonstrates **all markdown features** supported in the study tool.
+
+## Text Formatting
+
+You can use **bold text**, *italic text*, and ***bold italic text***.
+
+~~Strikethrough~~ is also supported.
+
+> This is a blockquote
+> It can span multiple lines
+
+---
+
+## Lists
+
+### Unordered List
+- Item 1
+- Item 2
+  - Nested item
+- Item 3
+
+### Ordered List
+1. First
+2. Second
+3. Third
+
+## Code
+
+Inline code: \`const x = 5\`
+
+\`\`\`javascript
+function hello() {
+  console.log("Hello World!");
+}
+\`\`\`
+
+## Math
+
+Inline: $E = mc^2$
+
+Block:
+$$
+\\int_{-\\infty}^{\\infty} e^{-x^2} dx = \\sqrt{\\pi}
+$$
+
+## Tables
+
+| Feature | Status |
+|---------|--------|
+| Headers | ✅ |
+| Lists | ✅ |
+| Code | ✅ |
+
+Click on topics in the sidebar to see more examples! 👈`,
+          sourceType: "notes",
+          topics: [
+            {
+              id: "topic1",
+              title: "Text Formatting & Headings",
+              icon: "✍️",
+              content: `# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
+
+**Bold text** and *italic text* and ***bold italic text***
+
+~~Strikethrough text~~
+
+This is a paragraph with some **bold words**, *italic words*, and ***both***.
+
+> This is a blockquote
+> It can span multiple lines
+> > And can be nested
+
+---
+
+Horizontal rule above and below
+
+___`,
+              order: 0,
+              learned: false
+            },
+            {
+              id: "topic2",
+              title: "Lists & Links",
+              icon: "📋",
+              content: `## Unordered Lists
+
+- Item 1
+- Item 2
+  - Nested item 2.1
+  - Nested item 2.2
+    - Deep nested item
+- Item 3
+
+* Alternative bullet
+* Another item
+
+## Ordered Lists
+
+1. First item
+2. Second item
+   1. Nested numbered item
+   2. Another nested item
+3. Third item
+
+## Task Lists
+
+- [x] Completed task
+- [ ] Incomplete task
+- [ ] Another task to do
+
+## Links
+
+[OpenAI](https://openai.com)
+
+[Link with title](https://example.com "Example Website")
+
+<https://autolink.com>`,
+              order: 1,
+              learned: false
+            },
+            {
+              id: "topic3",
+              title: "Code & Math",
+              icon: "💻",
+              content: `## Inline Code
+
+Use \`inline code\` for short snippets like \`const x = 5\`.
+
+## Code Blocks
+
+\`\`\`javascript
+function fibonacci(n) {
+  if (n <= 1) return n;
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+console.log(fibonacci(10));
+\`\`\`
+
+\`\`\`python
+def quicksort(arr):
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+    return quicksort(left) + middle + quicksort(right)
+\`\`\`
+
+## Math Equations (LaTeX)
+
+Inline math: $E = mc^2$ and $a^2 + b^2 = c^2$
+
+Block math:
+
+$$
+\\int_{-\\infty}^{\\infty} e^{-x^2} dx = \\sqrt{\\pi}
+$$
+
+$$
+f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-\\frac{1}{2}\\left(\\frac{x-\\mu}{\\sigma}\\right)^2}
+$$
+
+Matrix example:
+
+$$
+\\begin{bmatrix}
+a & b \\\\
+c & d
+\\end{bmatrix}
+$$`,
+              order: 2,
+              learned: false
+            },
+            {
+              id: "topic4",
+              title: "Tables & Images",
+              icon: "📊",
+              content: `## Tables
+
+| Feature | Supported | Notes |
+|---------|-----------|-------|
+| Headers | ✅ | H1-H6 |
+| Lists | ✅ | Ordered & Unordered |
+| Code | ✅ | Inline & Blocks |
+| Math | ✅ | LaTeX with KaTeX |
+| Tables | ✅ | Markdown tables |
+
+| Left Aligned | Center Aligned | Right Aligned |
+|:-------------|:--------------:|--------------:|
+| Left | Center | Right |
+| A | B | C |
+
+## Images
+
+![Alt text](https://via.placeholder.com/400x200?text=Sample+Image)
+
+![Small image](https://via.placeholder.com/150?text=Small)`,
+              order: 3,
+              learned: false
+            },
+            {
+              id: "topic5",
+              title: "Advanced Features",
+              icon: "🚀",
+              content: `## Footnotes
+
+Here's a sentence with a footnote[^1].
+
+[^1]: This is the footnote content.
+
+## Definition Lists
+
+Term 1
+: Definition 1
+
+Term 2
+: Definition 2a
+: Definition 2b
+
+## Escaped Characters
+
+\\* Not a bullet
+\\# Not a heading
+\\[Not a link\\]
+
+## HTML Elements
+
+<div style="background: #f0f0f0; padding: 16px; border-radius: 8px;">
+  <strong>HTML works too!</strong>
+  <p>You can use HTML elements directly.</p>
+</div>
+
+<details>
+<summary>Click to expand</summary>
+
+Hidden content here!
+
+</details>
+
+## Emojis
+
+😀 😃 😄 😁 🎉 🚀 💻 📚 ✨ 🔥
+
+## Complex Math
+
+Quadratic formula:
+
+$$
+x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}
+$$
+
+Summation:
+
+$$
+\\sum_{i=1}^{n} i = \\frac{n(n+1)}{2}
+$$
+
+Limits:
+
+$$
+\\lim_{x \\to \\infty} \\frac{1}{x} = 0
+$$`,
+              order: 4,
+              learned: false
+            }
+          ],
+          quizQuestions: [
+            {
+              question: "What is the main difference between supervised and unsupervised learning?",
+              options: [
+                "Supervised learning uses labeled data, unsupervised learning uses unlabeled data",
+                "Supervised learning is faster than unsupervised learning",
+                "Unsupervised learning is more accurate",
+                "There is no difference"
+              ],
+              correctAnswer: 0,
+              explanation: "The key difference is that supervised learning requires labeled training data where the correct answers are known, while unsupervised learning works with unlabeled data to find patterns.",
+              hint: "Think about whether the training data has labels or not",
+              topicId: "topic2"
+            },
+            {
+              question: "Which of the following is an example of supervised learning?",
+              options: [
+                "Clustering customers into groups",
+                "Predicting house prices based on features",
+                "Finding patterns in unlabeled data",
+                "Reducing data dimensions"
+              ],
+              correctAnswer: 1,
+              explanation: "Predicting house prices is a supervised learning task because you have labeled data (historical prices) to train the model.",
+              topicId: "topic2"
+            },
+            {
+              question: "What does K-means algorithm do?",
+              options: [
+                "Classifies data into predefined categories",
+                "Groups similar data points into clusters",
+                "Predicts continuous values",
+                "Reduces feature dimensions"
+              ],
+              correctAnswer: 1,
+              explanation: "K-means is a clustering algorithm that groups similar data points together into K clusters based on their features.",
+              hint: "It's an unsupervised learning technique",
+              topicId: "topic3"
+            }
+          ],
+          documentChatHistory: [],
+          quizChatHistory: [],
+          quizHistory: [],
+          createdAt: new Date().toISOString()
+        };
+
+        const fakeRecommendation: QuestionRecommendation = {
+          min: 3,
+          max: 10,
+          suggested: 5,
+          label: "Recommended"
+        };
+
+        setStudy(fakeStudy);
+        setRecommendation(fakeRecommendation);
+        
+        if (fakeStudy.quizQuestions?.length) {
+          setSelectedAnswers(new Array(fakeStudy.quizQuestions.length).fill(null));
+          setAnsweredQuestions(new Array(fakeStudy.quizQuestions.length).fill(false));
+        }
+        
+        setLoading(false);
+        return;
+      }
+
       const res = await fetch(`${API_URL}/studies/${params.id}`, {
         credentials: "include",
       });

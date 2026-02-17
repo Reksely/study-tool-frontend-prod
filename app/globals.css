@@ -171,6 +171,13 @@
   html, body {
     @apply bg-background text-foreground h-full overflow-hidden;
   }
+  /* Allow scrolling on landing page */
+  body:has(.landing-page) {
+    @apply overflow-auto h-auto;
+  }
+  html:has(.landing-page) {
+    @apply overflow-auto h-auto;
+  }
   /* Make all buttons and clickable elements show pointer cursor */
   button,
   [role="button"],
