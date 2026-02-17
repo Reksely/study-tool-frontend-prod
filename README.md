@@ -2,7 +2,7 @@
 
 Transform your PDFs, presentations, and notes into organized study materials, interactive quizzes, and AI-powered tutoring instantly.
 
-**[Try it now →](https://study-tool-frontend-prod.vercel.app/study/test)**
+**[Landing Page →](https://study-tool-frontend-prod.vercel.app)** | **[Try Study Dashboard →](https://study-tool-frontend-prod.vercel.app/study/test)**
 
 ## Features
 
@@ -19,7 +19,7 @@ Generate unlimited practice quizzes from your study material and get real-time h
 ### 🎥 Brainrot Videos
 Turn boring lectures into viral brainrot videos! Powered by [Korpi.AI](https://korpi.ai), our AI generates engaging, meme-style explanation videos from your study material. Think Minecraft parkour gameplay with your biology notes narrated in brainrot style. Learning has never been this entertaining.
 
-![Brainrot Video](https://study-tool-frontend-prod.vercel.app/videos/brainrot-video.mp4)
+![Brainrot Video](https://study-tool-frontend-prod.vercel.app/images/generate-videos.png)
 
 ### Additional Features
 
